@@ -10,9 +10,16 @@ calculateBtn.addEventListener('click', (e) => {
   const weight = parseFloat(weightInput.value);
   const height = parseFloat(heightInput.value);
 
+  if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+    alert('Please enter valid values for weight and height');
+    return;
+  }
+
   // calculate the BMI
   const bmi = weight / (height * height);
-  console.log("hh",bmi);
+  
   // display the result
   result.innerHTML = `Your BMI is: ${bmi.toFixed(2)}`;
+  weightInput.value = ""
+  heightInput.value = ""
 });
